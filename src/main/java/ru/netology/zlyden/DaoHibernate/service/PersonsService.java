@@ -14,7 +14,6 @@ public class PersonsService {
     @Autowired
     public PersonsService(PersonsRepository personsRepository) {
         this.personsRepository = personsRepository;
-        personsRepository.repositoryInit();
     }
 
     public List<Person> getPersonsByCity(String city) {
