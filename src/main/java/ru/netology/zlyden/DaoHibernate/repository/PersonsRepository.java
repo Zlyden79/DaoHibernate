@@ -11,12 +11,12 @@ import java.util.List;
 @Repository
 public interface PersonsRepository extends JpaRepository<Person, Human> {
 
-    @Query(value = "SELECT * FROM persons WHERE LOWER(city_of_living) = ?1", nativeQuery = true)
+    @Query(value = "SELECT * FROM persons WHERE LOWER(city_of_living) = :city", nativeQuery = true)
     List<Person> findByCityOfLiving(String city);
 
-    @Query(value = "SELECT * FROM persons WHERE age <= ?1 ORDER BY age", nativeQuery = true)
+    @Query(value = "SELECT * FROM persons WHERE age <= :age ORDER BY age", nativeQuery = true)
     List<Person> findByLessThanAgeOrderByAge(int age);
 
-    @Query(value = "SELECT * FROM persons WHERE LOWER(name) =?1 AND LOWER(surname) =?2", nativeQuery = true)
+    @Query(value = "SELECT * FROM persons WHERE LOWER(name) = :name AND LOWER(surname) = :surname", nativeQuery = true)
     List<Person> findByNameAndSurname(String name, String surname);
 }
