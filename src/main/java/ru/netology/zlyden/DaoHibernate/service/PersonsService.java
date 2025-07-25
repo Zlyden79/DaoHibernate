@@ -17,7 +17,16 @@ public class PersonsService {
     }
 
     public List<Person> getPersonsByCity(String city) {
-        return personsRepository.findByCityOfLeaving(city);
+        return personsRepository.findByIgnoreCaseCityOfLiving(city);
     }
+
+    public List<Person> getPersonsByAge(int age) {
+        return personsRepository.findByHumanAgeLessThanOrderByHumanAgeAsc(age);
+    }
+
+    public List<Person> getPersonsByNameSurname(String name, String surname) {
+        return personsRepository.findByHumanNameIgnoreCaseAndHumanSurnameIgnoreCase(name, surname);
+    }
+
 }
 
