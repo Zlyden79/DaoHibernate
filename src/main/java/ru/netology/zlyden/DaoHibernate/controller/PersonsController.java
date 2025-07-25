@@ -11,7 +11,7 @@ import ru.netology.zlyden.DaoHibernate.service.PersonsService;
 import java.util.List;
 
 @RestController
-@RequestMapping("/persons/by-city")
+@RequestMapping("/persons")
 public class PersonsController {
     private final PersonsService personsService;
 
@@ -20,8 +20,8 @@ public class PersonsController {
         this.personsService = personsService;
     }
 
-    @GetMapping
-    public List<Person> getPersonsByCity(@RequestParam(name="city") String city) {
+    @GetMapping("/by-city")
+    public List<Person> getPersonsByCity(@RequestParam(name = "city") String city) {
         return personsService.getPersonsByCity(city);
     }
 }

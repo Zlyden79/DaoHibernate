@@ -11,7 +11,6 @@ import java.io.Serializable;
 @Builder
 @NoArgsConstructor
 @AllArgsConstructor
-@ToString
 @Embeddable
 public class Human implements Serializable {
     @NonNull

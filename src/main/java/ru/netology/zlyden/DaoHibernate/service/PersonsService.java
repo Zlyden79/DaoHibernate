@@ -17,6 +17,7 @@ public class PersonsService {
     }
 
     public List<Person> getPersonsByCity(String city) {
-        return personsRepository.getPersonsByCity(city);
+        return personsRepository.findByCityOfLeaving(city);
     }
 }
+
